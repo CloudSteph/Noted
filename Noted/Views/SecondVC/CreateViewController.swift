@@ -15,7 +15,7 @@ protocol MyNoteProtocol: AnyObject {
     func myNote(note: ListNote)
 }
 
-final class CreateViewController: UIViewController, Storyboadable {
+final class CreateViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var titleTextField: UITextField!
     @IBOutlet private(set) weak var descrTextView: UITextView!
     
@@ -44,29 +44,15 @@ extension CreateViewController {
             return
         }
         
-        let newNote = ListNote(id: UUID(), title: unwrapTitleText, descr: unwrapNoteText, date: Date())
+        let newNote = ListNote(id: UUID(),
+                               title: unwrapTitleText,
+                               descr: unwrapNoteText,
+                               date: Date(),
+                               secret: "",
+                               secretHidden: true)
         myNote?(newNote)
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
     }
 }
-
-//// MARK: - Placeholder
-//extension CreateViewController {
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.textColor == UIColor.lightGray {
-//            textView.text = nil
-//            textView.textColor = UIColor.black
-//        }
-//    }
-//
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        if textView.text.isEmpty {
-//            textView.text = "Placeholder"
-//            textView.textColor = UIColor.lightGray
-//        }
-//    }
-//
-//}
-

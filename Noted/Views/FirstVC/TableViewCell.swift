@@ -35,10 +35,3 @@ final class TableViewCell: UITableViewCell {
     }
 }
 
-//extension TableViewCell {
-//    let randomColor = UIColor[]
-//}
-
-extension TableViewCell {
-    
-}

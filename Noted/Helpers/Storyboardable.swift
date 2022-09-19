@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol Storyboadable {
+protocol Storyboardable {
     static func instantiate() -> Self
     
     // MARK: - Properties
@@ -17,7 +17,7 @@ protocol Storyboadable {
     static var storyboardIdentifier: String { get }
 }
 
-extension Storyboadable where Self: UIViewController {
+extension Storyboardable where Self: UIViewController {
     static var storyboardName: String {
         return "Main"
     }
