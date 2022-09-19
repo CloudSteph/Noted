@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class EditViewController: UIViewController, Storyboadable {
+final class EditViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var editTitleTF: UITextField!
     @IBOutlet private(set) weak var editNoteTV: UITextView!
     
@@ -36,7 +36,9 @@ extension EditViewController {
         let updatedNote: ListNote = .init(id: unwrappedNote.id,
                                           title: editTitleTF.text ?? unwrappedNote.title,
                                           descr: editNoteTV.text ?? unwrappedNote.descr,
-                                          date: unwrappedNote.date)
+                                          date: unwrappedNote.date,
+                                          secret: unwrappedNote.secret,
+                                          secretHidden: true)
         viewModel.update(note: updatedNote)
         self.dismiss(animated: true)
     }

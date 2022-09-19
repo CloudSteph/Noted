@@ -86,7 +86,12 @@ protocol DomainModel {
 
 extension NoteMO: DomainModel {
     func toDomainModel() -> ListNote {
-        return ListNote(id: id ?? .init(), title: title ?? "", descr: descr ?? "", date: date ?? Date())
+        return ListNote(id: id ?? .init(),
+                        title: title ?? "",
+                        descr: descr ?? "",
+                        date: date ?? Date(),
+                        secret: secret ?? "",
+                        secretHidden: secretHidden)
         
     }
 }
@@ -124,6 +129,8 @@ extension NoteRepository: NoteRepositoryInterface {
             noteMO.title = note.title
             noteMO.descr = note.descr
             noteMO.date = note.date
+            noteMO.secret = note.secret
+            noteMO.secretHidden = note.secretHidden
             return .success(true)
             
         case .failure(let error):
@@ -140,6 +147,8 @@ extension NoteRepository: NoteRepositoryInterface {
                 firstNote.title = note.title
                 firstNote.descr = note.descr
                 firstNote.date = note.date
+                firstNote.secret = note.secret
+                firstNote.secretHidden = note.secretHidden
                 
                 return .success(true)
             } else {

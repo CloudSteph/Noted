@@ -26,6 +26,7 @@
 		B2D7A3AC28B3E4F4000E37F2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3AB28B3E4F4000E37F2 /* Colors.swift */; };
 		B2D7A3BD28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3BB28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift */; };
 		B2D7A3BE28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3BC28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift */; };
+		B2D7A3D028B92992000E37F2 /* EditSecretViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B2D7A3AB28B3E4F4000E37F2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B2D7A3BB28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B2D7A3BC28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSecretViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +89,7 @@
 				B2C9999228A304E100673357 /* NoteRepository */,
 				B2C9998428A2D88D00673357 /* Helpers */,
 				B220F5EB28A17A72005BCB18 /* Model */,
-				B220F5EC28A17A86005BCB18 /* View */,
+				B220F5EC28A17A86005BCB18 /* Views */,
 				B220F5ED28A17A91005BCB18 /* ViewModel */,
 				B220F5E228A17A6A005BCB18 /* LaunchScreen.storyboard */,
 				B220F5DA28A17A69005BCB18 /* Main.storyboard */,
@@ -107,16 +109,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B220F5EC28A17A86005BCB18 /* View */ = {
+		B220F5EC28A17A86005BCB18 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B2C9997928A2A9E500673357 /* FirstVC */,
 				B2C9997A28A2A9FC00673357 /* SecondVC */,
 				B2C9999D28AAA61500673357 /* ThirdVC */,
 				B2491D0228B00CB800618F3E /* FourthVC */,
-				B2491D0528B3D06500618F3E /* FifthVC */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B220F5ED28A17A91005BCB18 /* ViewModel */ = {
@@ -131,16 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				B2491D0328B020BB00618F3E /* EditViewController.swift */,
+				B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */,
 			);
 			path = FourthVC;
-			sourceTree = "<group>";
-		};
-		B2491D0528B3D06500618F3E /* FifthVC */ = {
-			isa = PBXGroup;
-			children = (
-				B2491D0628B3D0DF00618F3E /* SecretNoteViewController.swift */,
-			);
-			path = FifthVC;
 			sourceTree = "<group>";
 		};
 		B2C9997928A2A9E500673357 /* FirstVC */ = {
@@ -190,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				B2C9999E28AAA77100673357 /* DetailViewController.swift */,
+				B2491D0628B3D0DF00618F3E /* SecretNoteViewController.swift */,
 			);
 			path = ThirdVC;
 			sourceTree = "<group>";
@@ -272,6 +267,7 @@
 				B2491D0428B020BB00618F3E /* EditViewController.swift in Sources */,
 				B2C9998228A2AB3000673357 /* TableViewCell.swift in Sources */,
 				B220F5D528A17A69005BCB18 /* AppDelegate.swift in Sources */,
+				B2D7A3D028B92992000E37F2 /* EditSecretViewController.swift in Sources */,
 				B2D7A3BE28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift in Sources */,
 				B2C9997628A2A76300673357 /* MainViewController.swift in Sources */,
 				B220F5D728A17A69005BCB18 /* SceneDelegate.swift in Sources */,

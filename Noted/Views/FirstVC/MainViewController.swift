@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 
-final class MainViewController: UIViewController, Storyboadable {
+final class MainViewController: UIViewController, Storyboardable {
     
     @IBOutlet private(set) weak var tableView: UITableView!
-    private let searchController = UISearchController()
+    @IBOutlet private(set) weak var searchBar: UISearchBar!
+    
     private var viewModel: NoteVM = .init()
     private let cellSpacingHeight: CGFloat = 12
     var color: [Int: Colors?] = [:]
@@ -21,8 +22,6 @@ final class MainViewController: UIViewController, Storyboadable {
         setupObservers()
         setupTableView()
         title = "My Notes"
-//        navigationController?.navigationBar.prefersLargeTitles = "My Notes"
-        navigationItem.searchController = searchController
         navigationItem.backButtonTitle = ""
         
         let backgroundView = UIView()
@@ -32,11 +31,7 @@ final class MainViewController: UIViewController, Storyboadable {
         tableView.separatorStyle = .none
         
         //Search Controller
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Search Notes..."
-        navigationItem.searchController = search
+        searchBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,20 +77,7 @@ extension MainViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        viewModel.notes.remove(at: indexPath.row)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//            }
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return cellSpacingHeight
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if isFiltering {
-//            return viewModel.availableNotes.count
-//          }
         return viewModel.noteCount()
     }
     
@@ -103,9 +85,36 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifer, for: indexPath) as? TableViewCell else {
             return .init()
         }
+        
         cell.configure(with: viewModel.note(for: indexPath.row), indexPath: indexPath)
         cell.view.layer.cornerRadius = cell.view.frame.height / 5
         return cell
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension MainViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("### searchText: \(searchText)")
+        self.viewModel.setFilterNotes(for: searchText)
+        self.tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.viewModel.isSearching = true
+        self.tableView.reloadData()
+        print("### Start editing")
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        self.viewModel.isSearching = false
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.tableView.reloadData()
+        self.viewModel.isSearching = false
+        print("### End editing")
     }
 }
 
@@ -119,28 +128,3 @@ extension MainViewController {
         self.navigationController?.pushViewController(createVC, animated: true)
     }
 }
-
-// MARK: - SearchBar
-extension MainViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print(text)
-    }
-}
-
-//// MARK: - FilterNotes
-//extension MainViewController {
-//    var isFiltering: Bool {
-//      return searchController.isActive && !isSearchBarEmpty
-//    }
-//    var isSearchBarEmpty: Bool {
-//      return searchController.searchBar.text?.isEmpty ?? true
-//    }
-//
-//    func filterContentForSearchText(_ searchText: String,
-//                                    category: ListNote.Category? = nil) {
-//        filterNotes = viewModel.availableNotes.filter { (note: note) -> Bool in
-//        return notes.name.lowercased().contains(searchText.lowercased())
-//      }
-//}
-

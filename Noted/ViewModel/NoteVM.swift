@@ -19,9 +19,13 @@ final class NoteVM {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private(set) var repository: NoteRepository
+    private(set) var unitOfWork: UnitOfWork
     
     private(set) var availableNotes: [ListNote] = []
-    private(set) var unitOfWork: UnitOfWork
+    private(set) var filteredNotes: [ListNote] = []
+    
+    var isSearching: Bool = false
+   
     
     init() {
         repository = .init(context: context)
@@ -30,21 +34,46 @@ final class NoteVM {
     }
     
     func note(for index: Int) -> ListNote {
-        return availableNotes[index]
+        return isSearching ? filteredNotes[index] : availableNotes[index]
     }
     
     func noteCount() -> Int {
-        availableNotes.count
+        isSearching ? filteredNotes.count : availableNotes.count
+    }
+    
+    func setFilterNotes(for filter: String) {
+        guard filter != "" && !filter.isEmpty else {
+            filteredNotes = availableNotes
+            return
+        }
+        filteredNotes = availableNotes.filter { $0.title.lowercased().contains(filter.lowercased()) || $0.descr.lowercased().contains(filter.lowercased()) }
     }
 }
 
-// MARK: - Core Data
+// MARK: - Function for SecretNote
+extension NoteVM {
+    func retrieveSecret(for id: UUID, _ completed: @escaping (ListNote?) -> Void) {
+        let retrieveSecret = repository.getNotes(predicate: NSPredicate(format: "id == %@", id as CVarArg))
+        switch retrieveSecret {
+        case .success(let notes):
+            guard let first = notes.first else {
+                completed(nil)
+                return
+            }
+            completed(first)
+        case .failure( _): completed(nil)
+        }
+    }
+}
+
+// MARK: - Core Data for Original Note
 extension NoteVM {
     func retrieveNotes() {
         let retrieveNotes = repository.getNotes(predicate: .none)
         switch retrieveNotes {
         case .success(let notes):
             availableNotes = notes
+            filteredNotes = notes
         case .failure(let error):
             print("\(error)")
         }
@@ -55,6 +84,7 @@ extension NoteVM {
         switch retrieveNotes {
         case .success(let notes):
             availableNotes = notes
+            filteredNotes = notes
             completed()
         case .failure(let error):
             print("\(error)")
