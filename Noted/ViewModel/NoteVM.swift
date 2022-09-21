@@ -107,6 +107,6 @@ extension NoteVM {
     func update(note: ListNote) {
         unitOfWork.noteRepository.update(note: note)
         unitOfWork.saveChanges()
-        NotificationCenter.default.post(name: .noteEdited, object: .none)
+        NotificationCenter.default.post(name: .noteEdited, object: note)
     }
 }

@@ -23,6 +23,7 @@ final class DetailViewController: UIViewController, Storyboardable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDetailObservers()
         setupNavigationBar()
         detailTitleLabel.text = passedNote?.title ?? ""
         detailNoteLabel.text = passedNote?.descr ?? ""
@@ -50,6 +51,19 @@ extension DetailViewController {
                 target: self,
                 action: #selector(editButtonPressed(sender:)))
         ]
+    }
+}
+
+// MARK: - Setup Methods
+extension DetailViewController {
+    func setupDetailObservers() {
+        NotificationCenter.default.addObserver(forName: .noteEdited, object: .none, queue: .none) { notif in
+            guard let data = notif.object as? ListNote else { return }
+            DispatchQueue.main.async {
+                self.detailTitleLabel.text = data.title
+                self.detailNoteLabel.text = data.descr
+            }
+        }
     }
 }
 
