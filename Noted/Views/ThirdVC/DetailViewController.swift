@@ -16,10 +16,8 @@ final class DetailViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var detailTitleLabel: UILabel!
     @IBOutlet private(set) weak var detailNoteLabel: UILabel!
     
-    private var viewModel: NoteVM = .init()
+    private var viewModel: NoteViewModel = .init()
     public var passedNote: ListNote?
-    
-    private let colors: [UIColor] = [Colors.blue, Colors.green, Colors.purple, Colors.orange, Colors.teal, Colors.peach]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +26,12 @@ final class DetailViewController: UIViewController, Storyboardable {
         detailTitleLabel.text = passedNote?.title ?? ""
         detailNoteLabel.text = passedNote?.descr ?? ""
         
-        self.navigationItem.backButtonTitle = ""
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(sender:)))
         tap.numberOfTapsRequired = 2
         view.addGestureRecognizer(tap)
+        
+        view.backgroundColor = passedNote?.color
+        
     }
 }
 
@@ -89,7 +88,7 @@ extension DetailViewController {
     
     @objc private func doubleTapped(sender: UITextView) {
         print("Did Double Tapped")
-        let secretDetailVC: SecretDetailViewController = .instantiate()
+        let secretDetailVC: SecretNoteViewController = .instantiate()
         secretDetailVC.secretPassedNote = passedNote
         secretDetailVC.modalPresentationStyle = .overCurrentContext
         secretDetailVC.modalTransitionStyle = .crossDissolve

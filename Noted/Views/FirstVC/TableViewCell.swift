@@ -20,15 +20,13 @@ final class TableViewCell: UITableViewCell {
     private let colors: [UIColor] = [Colors.blue, Colors.green, Colors.purple, Colors.orange, Colors.teal, Colors.peach]
     
     func configure(with note: ListNote, indexPath: IndexPath) {
-        view.backgroundColor = colors[indexPath.row % 6]
-//        view.backgroundColor = Colors.peach
+        view.backgroundColor = note.color
         titleLabel.text = note.title
         descrLabel.text = note.descr
-//        dateLabel.text = String(describing: note.date)
         dateLabel.text = note.date.formatted()
     }
     
-    //Adds spacing 
+    //Adds spacing to TableViewCells
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))

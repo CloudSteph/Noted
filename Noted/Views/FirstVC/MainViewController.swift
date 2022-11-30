@@ -13,7 +13,7 @@ final class MainViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var tableView: UITableView!
     @IBOutlet private(set) weak var searchBar: UISearchBar!
     
-    private var viewModel: NoteVM = .init()
+    private var viewModel: NoteViewModel = .init()
     private let cellSpacingHeight: CGFloat = 12
     var color: [Int: Colors?] = [:]
     
@@ -23,9 +23,7 @@ final class MainViewController: UIViewController, Storyboardable {
         setupTableView()
         title = "My Notes"
         navigationItem.backButtonTitle = ""
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.blue
+        self.navigationController?.navigationBar.tintColor = .black
         
         //remove tableView separator
         tableView.separatorStyle = .none

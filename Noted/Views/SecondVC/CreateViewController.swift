@@ -19,18 +19,21 @@ final class CreateViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var titleTextField: UITextField!
     @IBOutlet private(set) weak var descrTextView: UITextView!
     
-    private var viewModel: NoteVM = .init()
+    private var viewModel: NoteViewModel = .init()
     var myNote: ((ListNote) -> Void)?
     
+    private let creationColors: [UIColor] = [Colors.blue, Colors.green, Colors.purple, Colors.orange, Colors.teal, Colors.peach]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         descrTextView.text = "New notes..."
         descrTextView.textColor = UIColor.lightGray
         descrTextView.returnKeyType = .done
         descrTextView.delegate = self
+        descrTextView.layer.cornerRadius = 5
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSave(sender:)))
+        navigationItem.rightBarButtonItem?.tintColor = .black
     }
 }
 
@@ -74,7 +77,8 @@ extension CreateViewController {
                                descr: unwrapNoteText,
                                date: Date(),
                                secret: "",
-                               secretHidden: true)
+                               secretHidden: true,
+                               color: creationColors.randomElement() ?? Colors.peach)
         myNote?(newNote)
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)

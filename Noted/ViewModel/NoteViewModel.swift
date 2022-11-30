@@ -13,7 +13,7 @@ extension NSNotification.Name {
     static let noteEdited: NSNotification.Name = .init(rawValue: "NoteEdited")
 }
 
-final class NoteVM {
+final class NoteViewModel {
     
     // Reference to managed object context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -51,7 +51,7 @@ final class NoteVM {
 }
 
 // MARK: - Function for SecretNote
-extension NoteVM {
+extension NoteViewModel {
     func retrieveSecret(for id: UUID, _ completed: @escaping (ListNote?) -> Void) {
         let retrieveSecret = repository.getNotes(predicate: NSPredicate(format: "id == %@", id as CVarArg))
         switch retrieveSecret {
@@ -67,7 +67,7 @@ extension NoteVM {
 }
 
 // MARK: - Core Data for Original Note
-extension NoteVM {
+extension NoteViewModel {
     func retrieveNotes() {
         let retrieveNotes = repository.getNotes(predicate: .none)
         switch retrieveNotes {

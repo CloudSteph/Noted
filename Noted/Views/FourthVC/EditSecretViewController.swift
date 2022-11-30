@@ -12,12 +12,21 @@ final class EditSecretViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var editSecretView: UIView!
     @IBOutlet private(set) weak var editSecretTextView: UITextView!
     
+    @IBOutlet private(set) weak var cancelButton: UIButton!
+    @IBOutlet private(set) weak var displayButton: UIButton!
+    
+    private var viewModel: NoteViewModel = .init()
     var displayNote: ((ListNote) -> Void)?
     public var editSecretPassedNote: ListNote?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         editSecretTextView.text = editSecretPassedNote?.secret ?? ""
+        editSecretTextView.layer.cornerRadius = 5
+        editSecretTextView.font = UIFont.systemFont(ofSize: 20)
+        cancelButton.backgroundColor = editSecretPassedNote?.color
+        displayButton.backgroundColor = editSecretPassedNote?.color
+        
     }
 }
 
@@ -25,9 +34,10 @@ final class EditSecretViewController: UIViewController, Storyboardable {
 extension EditSecretViewController {
     @IBAction func didTapDisplay(sender: UIButton) {
         guard let unwrappedSecretNote = editSecretPassedNote else { return }
-        let updatedNote: ListNote = unwrappedSecretNote.setSecret(editSecretTextView.text)
-        let visibleNote = updatedNote.setSecretHidden(false)
+        let updatedSecretNote: ListNote = unwrappedSecretNote.setSecret(editSecretTextView.text)
+        let visibleNote = updatedSecretNote.setSecretHidden(false)
         displayNote?(visibleNote)
+        
         self.dismiss(animated: true)
     }
     

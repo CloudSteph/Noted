@@ -16,16 +16,16 @@
 		B220F5EF28A17ADA005BCB18 /* ListNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220F5EE28A17ADA005BCB18 /* ListNote.swift */; };
 		B2491D0428B020BB00618F3E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2491D0328B020BB00618F3E /* EditViewController.swift */; };
 		B2491D0728B3D0DF00618F3E /* SecretNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2491D0628B3D0DF00618F3E /* SecretNoteViewController.swift */; };
+		B2764BD3292D3DBD0008F4C4 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764BD1292D3DBD0008F4C4 /* NoteMO+CoreDataClass.swift */; };
+		B2764BD4292D3DBD0008F4C4 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2764BD2292D3DBD0008F4C4 /* NoteMO+CoreDataProperties.swift */; };
 		B2C9997628A2A76300673357 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9997528A2A76300673357 /* MainViewController.swift */; };
-		B2C9997828A2A9CE00673357 /* NoteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9997728A2A9CE00673357 /* NoteVM.swift */; };
+		B2C9997828A2A9CE00673357 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9997728A2A9CE00673357 /* NoteViewModel.swift */; };
 		B2C9997C28A2AA5D00673357 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9997B28A2AA5D00673357 /* CreateViewController.swift */; };
 		B2C9998228A2AB3000673357 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9998128A2AB3000673357 /* TableViewCell.swift */; };
 		B2C9998D28A2EDF200673357 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9998C28A2EDF200673357 /* Repository.swift */; };
 		B2C9999F28AAA77100673357 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9999E28AAA77100673357 /* DetailViewController.swift */; };
 		B2C999A128AADABF00673357 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C999A028AADABF00673357 /* Storyboardable.swift */; };
 		B2D7A3AC28B3E4F4000E37F2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3AB28B3E4F4000E37F2 /* Colors.swift */; };
-		B2D7A3BD28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3BB28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift */; };
-		B2D7A3BE28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3BC28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift */; };
 		B2D7A3D028B92992000E37F2 /* EditSecretViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,16 +41,16 @@
 		B220F5EE28A17ADA005BCB18 /* ListNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNote.swift; sourceTree = "<group>"; };
 		B2491D0328B020BB00618F3E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		B2491D0628B3D0DF00618F3E /* SecretNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretNoteViewController.swift; sourceTree = "<group>"; };
+		B2764BD1292D3DBD0008F4C4 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B2764BD2292D3DBD0008F4C4 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		B2C9997528A2A76300673357 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		B2C9997728A2A9CE00673357 /* NoteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVM.swift; sourceTree = "<group>"; };
+		B2C9997728A2A9CE00673357 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		B2C9997B28A2AA5D00673357 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		B2C9998128A2AB3000673357 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B2C9998C28A2EDF200673357 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		B2C9999E28AAA77100673357 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B2C999A028AADABF00673357 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		B2D7A3AB28B3E4F4000E37F2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		B2D7A3BB28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B2D7A3BC28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSecretViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +123,7 @@
 		B220F5ED28A17A91005BCB18 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B2C9997728A2A9CE00673357 /* NoteVM.swift */,
+				B2C9997728A2A9CE00673357 /* NoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,8 +166,8 @@
 		B2C9998B28A2DC6600673357 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B2D7A3BB28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift */,
-				B2D7A3BC28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift */,
+				B2764BD1292D3DBD0008F4C4 /* NoteMO+CoreDataClass.swift */,
+				B2764BD2292D3DBD0008F4C4 /* NoteMO+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -263,20 +263,20 @@
 				B2C9999F28AAA77100673357 /* DetailViewController.swift in Sources */,
 				B2C999A128AADABF00673357 /* Storyboardable.swift in Sources */,
 				B220F5DF28A17A6A005BCB18 /* Noted.xcdatamodeld in Sources */,
-				B2C9997828A2A9CE00673357 /* NoteVM.swift in Sources */,
+				B2C9997828A2A9CE00673357 /* NoteViewModel.swift in Sources */,
 				B2491D0428B020BB00618F3E /* EditViewController.swift in Sources */,
 				B2C9998228A2AB3000673357 /* TableViewCell.swift in Sources */,
 				B220F5D528A17A69005BCB18 /* AppDelegate.swift in Sources */,
 				B2D7A3D028B92992000E37F2 /* EditSecretViewController.swift in Sources */,
-				B2D7A3BE28B6C4CE000E37F2 /* NoteMO+CoreDataProperties.swift in Sources */,
+				B2764BD4292D3DBD0008F4C4 /* NoteMO+CoreDataProperties.swift in Sources */,
 				B2C9997628A2A76300673357 /* MainViewController.swift in Sources */,
 				B220F5D728A17A69005BCB18 /* SceneDelegate.swift in Sources */,
+				B2764BD3292D3DBD0008F4C4 /* NoteMO+CoreDataClass.swift in Sources */,
 				B2D7A3AC28B3E4F4000E37F2 /* Colors.swift in Sources */,
 				B2491D0728B3D0DF00618F3E /* SecretNoteViewController.swift in Sources */,
 				B220F5EF28A17ADA005BCB18 /* ListNote.swift in Sources */,
 				B2C9998D28A2EDF200673357 /* Repository.swift in Sources */,
 				B2C9997C28A2AA5D00673357 /* CreateViewController.swift in Sources */,
-				B2D7A3BD28B6C4CE000E37F2 /* NoteMO+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +431,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +460,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

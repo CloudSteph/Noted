@@ -8,46 +8,34 @@
 import UIKit
 import CloudKit
 
-class SecretDetailViewController: UIViewController, Storyboardable {
+class SecretNoteViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var secretView: UIView!
     @IBOutlet private(set) weak var secretLabel: UILabel!
     
-    private let viewModel: NoteVM = .init()
+    @IBOutlet private(set) weak var doneButton: UIButton!
+    @IBOutlet private(set) weak var editButton: UIButton!
+    
+    private let viewModel: NoteViewModel = .init()
 
     public var secretPassedNote: ListNote?
     
-    //Creates Blur Effect 
-    lazy var blurredView: UIView = {
-        let containerView = UIView()
-        let blurEffect = UIBlurEffect(style: .dark)
-        let dimmedView = UIView()
-        dimmedView.backgroundColor = .black.withAlphaComponent(0.6)
-        dimmedView.frame = self.view.bounds
-        containerView.addSubview(dimmedView)
-        return containerView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         setupObservers()
         secretLabel.text = secretPassedNote?.secret ?? ""
-       
+        doneButton.backgroundColor = secretPassedNote?.color
+        editButton.backgroundColor = secretPassedNote?.color
     }
 }
 
 
-// MARK: - Setup Methods
-extension SecretDetailViewController {
-    func setupView() {
-        view.addSubview(blurredView)
-        view.sendSubviewToBack(blurredView)
-    }
-    
+// MARK: - Setup Method
+extension SecretNoteViewController {
     func setupObservers() {
         NotificationCenter.default.addObserver(forName: .noteEdited, object: .none, queue: .none) { _ in
             guard let id = self.secretPassedNote?.id else { return }
             self.viewModel.retrieveSecret(for: id) { updatedNote in
+                self.secretPassedNote = updatedNote
                 DispatchQueue.main.async {
                     self.secretLabel.text = updatedNote?.secret
                 }
@@ -57,8 +45,8 @@ extension SecretDetailViewController {
 }
 
 // MARK: - IBActions
-extension SecretDetailViewController {
-    @IBAction func didCancel(sender: UIButton) {
+extension SecretNoteViewController {
+    @IBAction func didPressDone(sender: UIButton) {
         dismiss(animated: true)
     }
     
