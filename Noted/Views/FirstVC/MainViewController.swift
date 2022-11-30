@@ -16,7 +16,7 @@ final class MainViewController: UIViewController, Storyboardable {
     private var viewModel: NoteViewModel = .init()
     private let cellSpacingHeight: CGFloat = 12
     var color: [Int: Colors?] = [:]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupObservers()
@@ -43,7 +43,7 @@ extension MainViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
+    //Adds an entry to the notification center to receive notifications that passed to the provided block
     private func setupObservers() {
         NotificationCenter.default.addObserver(forName: .noteDeleted, object: .none, queue: .none) { _ in
             self.viewModel.refreshNotes {
@@ -75,6 +75,18 @@ extension MainViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+            -> UISwipeActionsConfiguration? {
+                let deleteAction = UIContextualAction(style: .destructive, title: nil) {_,_,_ in
+                    self.viewModel.deleteNote(atIndex: indexPath)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+                deleteAction.image = UIImage(systemName: "trash")
+                deleteAction.backgroundColor = viewModel.note(for: indexPath.row).color
+                let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.noteCount()
     }

@@ -33,10 +33,19 @@ final class NoteViewModel {
         retrieveNotes()
     }
     
+    //Remove data from row and then fire with notification 
+    func deleteNote(atIndex indexPath: IndexPath) {
+        unitOfWork.noteRepository.delete(note: note(for: indexPath.row))
+        unitOfWork.saveChanges()
+        NotificationCenter.default.post(name: .noteDeleted, object: .none)
+    }
+    
+    //Searching and Filtering through notes at each row
     func note(for index: Int) -> ListNote {
         return isSearching ? filteredNotes[index] : availableNotes[index]
     }
     
+    //Searching through the amount of notes there is
     func noteCount() -> Int {
         isSearching ? filteredNotes.count : availableNotes.count
     }
