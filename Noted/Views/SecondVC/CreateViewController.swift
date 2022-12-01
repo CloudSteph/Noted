@@ -31,6 +31,7 @@ final class CreateViewController: UIViewController, Storyboardable {
         descrTextView.returnKeyType = .done
         descrTextView.delegate = self
         descrTextView.layer.cornerRadius = 5
+        view.backgroundColor = .systemGray4
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSave(sender:)))
         navigationItem.rightBarButtonItem?.tintColor = .black

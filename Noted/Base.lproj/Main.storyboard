@@ -25,7 +25,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7rC-bH-UG6">
-                                <rect key="frame" x="0.0" y="136" width="414" height="726"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="760"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="100" id="GkA-Xq-FzH" customClass="TableViewCell" customModule="Noted" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="100"/>
@@ -96,8 +96,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7rC-bH-UG6" secondAttribute="bottom" id="7KW-ne-Idg"/>
                             <constraint firstItem="7rC-bH-UG6" firstAttribute="top" secondItem="0e2-HN-O8G" secondAttribute="bottom" id="FHV-ct-2c8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7rC-bH-UG6" secondAttribute="bottom" id="JQA-tv-XkK"/>
                             <constraint firstItem="0e2-HN-O8G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PsX-Fe-mfG"/>
                             <constraint firstItem="0e2-HN-O8G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YhI-l1-rTh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7rC-bH-UG6" secondAttribute="trailing" id="hHG-7V-TZE"/>
@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="New Note..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-HK-RbZ">
-                                <rect key="frame" x="16" y="185" width="382" height="667"/>
+                                <rect key="frame" x="16" y="182.5" width="382" height="669.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -150,8 +150,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0i-ja-X0h">
-                                <rect key="frame" x="140" y="141" width="134" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <rect key="frame" x="140" y="141" width="134" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
