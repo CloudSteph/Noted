@@ -26,10 +26,10 @@ final class DetailViewController: UIViewController, Storyboardable {
         detailTitleLabel.text = passedNote?.title ?? ""
         detailNoteLabel.text = passedNote?.descr ?? ""
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(sender:)))
-        tap.numberOfTapsRequired = 2
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedNote(sender:)))
+        tap.numberOfTapsRequired = viewModel.tapsRequired()
         view.addGestureRecognizer(tap)
-        
+
         view.backgroundColor = passedNote?.color
         
     }
@@ -86,7 +86,7 @@ extension DetailViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc private func doubleTapped(sender: UITextView) {
+    @objc private func tappedNote(sender: UITextView) {
         print("Did Double Tapped")
         let secretDetailVC: SecretNoteViewController = .instantiate()
         secretDetailVC.secretPassedNote = passedNote

@@ -27,6 +27,7 @@
 		B2C999A128AADABF00673357 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C999A028AADABF00673357 /* Storyboardable.swift */; };
 		B2D7A3AC28B3E4F4000E37F2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3AB28B3E4F4000E37F2 /* Colors.swift */; };
 		B2D7A3D028B92992000E37F2 /* EditSecretViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */; };
+		B2FD40062938337700033924 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD40052938337700033924 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B2C999A028AADABF00673357 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		B2D7A3AB28B3E4F4000E37F2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B2D7A3CF28B92992000E37F2 /* EditSecretViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSecretViewController.swift; sourceTree = "<group>"; };
+		B2FD40052938337700033924 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B2C9997A28A2A9FC00673357 /* SecondVC */,
 				B2C9999D28AAA61500673357 /* ThirdVC */,
 				B2491D0228B00CB800618F3E /* FourthVC */,
+				B2FD40072938339500033924 /* FifthVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +190,14 @@
 				B2491D0628B3D0DF00618F3E /* SecretNoteViewController.swift */,
 			);
 			path = ThirdVC;
+			sourceTree = "<group>";
+		};
+		B2FD40072938339500033924 /* FifthVC */ = {
+			isa = PBXGroup;
+			children = (
+				B2FD40052938337700033924 /* SettingsViewController.swift */,
+			);
+			path = FifthVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 				B220F5EF28A17ADA005BCB18 /* ListNote.swift in Sources */,
 				B2C9998D28A2EDF200673357 /* Repository.swift in Sources */,
 				B2C9997C28A2AA5D00673357 /* CreateViewController.swift in Sources */,
+				B2FD40062938337700033924 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,7 @@ final class NoteViewModel {
     
     var isSearching: Bool = false
    
+    let numTapsData: [TapOptions] = TapOptions.allCases
     
     init() {
         repository = .init(context: context)
@@ -56,6 +57,17 @@ final class NoteViewModel {
             return
         }
         filteredNotes = availableNotes.filter { $0.title.lowercased().contains(filter.lowercased()) || $0.descr.lowercased().contains(filter.lowercased()) }
+    }
+}
+
+extension NoteViewModel {
+    func tapsRequired() -> Int {
+        return UserDefaults.standard.integer(forKey: "numOfTaps")
+    }
+    
+    func currentSavedTapRequirement() -> TapOptions {
+        let current = UserDefaults.standard.integer(forKey: "numOfTaps")
+        return numTapsData.first(where: { $0.value == current }) ?? .two
     }
 }
 

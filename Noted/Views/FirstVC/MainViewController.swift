@@ -23,7 +23,7 @@ final class MainViewController: UIViewController, Storyboardable {
         setupTableView()
         title = "My Notes"
         navigationItem.backButtonTitle = ""
-        self.navigationController?.navigationBar.tintColor = .black
+//        self.navigationController?.navigationBar.tintColor = .systemBlue
         
         //remove tableView separator
         tableView.separatorStyle = .none
@@ -104,23 +104,27 @@ extension MainViewController: UITableViewDataSource {
 
 // MARK: - UISearchBarDelegate
 extension MainViewController: UISearchBarDelegate {
+    //User changed the serach text
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("### searchText: \(searchText)")
         self.viewModel.setFilterNotes(for: searchText)
         self.tableView.reloadData()
     }
     
+    //User starts editing the search text
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.viewModel.isSearching = true
         self.tableView.reloadData()
         print("### Start editing")
     }
     
+    //Editing should stop in the specified search bar
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         self.viewModel.isSearching = false
         return true
     }
     
+    //User finished editing the search text
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.tableView.reloadData()
         self.viewModel.isSearching = false
@@ -128,7 +132,7 @@ extension MainViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - IBAction
+// MARK: - IBAction for creating note
 extension MainViewController {
     @IBAction func didTapAdd(sender: UIBarButtonItem) {
         let createVC: CreateViewController = .instantiate()
@@ -136,5 +140,12 @@ extension MainViewController {
             self?.viewModel.save(note: note)
         }
         self.navigationController?.pushViewController(createVC, animated: true)
+    }
+}
+
+extension MainViewController {
+    @IBAction func didTapSettings(sender: UIBarButtonItem) {
+        let settingVC: SettingsViewController = .instantiate()
+        self.navigationController?.pushViewController(settingVC, animated: true)
     }
 }
