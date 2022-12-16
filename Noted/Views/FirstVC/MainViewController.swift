@@ -23,7 +23,7 @@ final class MainViewController: UIViewController, Storyboardable {
         setupTableView()
         title = "My Notes"
         navigationItem.backButtonTitle = ""
-//        self.navigationController?.navigationBar.tintColor = .systemBlue
+        self.navigationController?.navigationBar.tintColor = .black
         
         //remove tableView separator
         tableView.separatorStyle = .none
@@ -143,6 +143,7 @@ extension MainViewController {
     }
 }
 
+// MARK: IBAction to navigate to Settings
 extension MainViewController {
     @IBAction func didTapSettings(sender: UIBarButtonItem) {
         let settingVC: SettingsViewController = .instantiate()
