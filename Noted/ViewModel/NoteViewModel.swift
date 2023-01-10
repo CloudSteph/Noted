@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Notification Center: broadcast one part of the app to another part
 extension NSNotification.Name {
     static let noteDeleted: NSNotification.Name = .init(rawValue: "NoteDeleted")
     static let noteEdited: NSNotification.Name = .init(rawValue: "NoteEdited")

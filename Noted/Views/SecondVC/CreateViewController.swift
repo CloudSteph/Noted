@@ -11,10 +11,6 @@ import UIKit
 // AddNoteViewController
 // - creating a note only
 
-protocol MyNoteProtocol: AnyObject {
-    func myNote(note: ListNote)
-}
-
 final class CreateViewController: UIViewController, Storyboardable {
     @IBOutlet private(set) weak var titleTextField: UITextField!
     @IBOutlet private(set) weak var descrTextView: UITextView!

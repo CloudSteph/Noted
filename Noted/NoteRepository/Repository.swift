@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 
+//Repository Pattern
 protocol Repository {
     
     //The entity managed by the repository
@@ -83,7 +84,7 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
 }
 
 //Protocol that describes a note repository
-//Get a note using a predicate; create, update, delete a note on the persistence layer
+//Get a note using a predicate; create, read, update, delete a note on the persistence layer
 protocol NoteRepositoryInterface {
     func getNotes(predicate: NSPredicate?) -> Result<[ListNote], Error>
     func create(note: ListNote) -> Result<Bool, CoreDataError>
