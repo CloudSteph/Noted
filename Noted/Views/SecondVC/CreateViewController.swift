@@ -42,12 +42,7 @@ extension CreateViewController: UITextViewDelegate {
             textView.textColor = UIColor.black
         }
     }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-        }
-        return true
-    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "New Notes..."
