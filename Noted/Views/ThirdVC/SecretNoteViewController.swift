@@ -47,6 +47,7 @@ extension SecretNoteViewController {
 // MARK: - IBActions
 extension SecretNoteViewController {
     @IBAction func didPressDone(sender: UIButton) {
+        self.secretLabel.text = secretPassedNote?.secret ?? ""
         dismiss(animated: true)
     }
     
